@@ -13,7 +13,7 @@ const dayName = days[d.getDay()];
 
 //middelware :
 function logger(req,res,next){
-    if(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'].includes(dayName)&&(hours>=16) && (hours<=17) ){
+    if(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'].includes(dayName)&&(hours>=9 && (hours<=17) ){
        next()}
     else {
         res.send("site is closed")
