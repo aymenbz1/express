@@ -5,13 +5,15 @@ const pug=require('pug')
 
 //get hours :
 const d = new Date()
-const  hours = d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
-console.log(hours)
+const  hours = d.getHours() ;
+const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+const dayName = days[d.getDay()];
+// console.log(getName)
 
 
 //middelware :
 function logger(req,res,next){
-    if(d.getHours>9 && d.getHours<17){
+    if(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'].includes(dayName)&&(hours>=16) && (hours<=17) ){
        next()}
     else {
         res.send("site is closed")
